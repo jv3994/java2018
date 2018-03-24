@@ -12,10 +12,11 @@ import static java.lang.Math.*;
 
 public class Interference2 extends Applet implements Runnable, KeyListener{
 	
-	int d = 30;
+	int d = 10;
 	int g = 10;
 	double f = 4;
 	double c = 200;
+	double decay = 0.9;
 	
 	int fieldx = 625;
 	int fieldy = 310;
@@ -92,7 +93,7 @@ public class Interference2 extends Applet implements Runnable, KeyListener{
 		for (int y = 0; y<fieldy; y++) {
 			for (int x = 0; x<fieldx; x++) {
 				field[y][x] += dt * fieldv[y][x];
-				fieldv[y][x] *= pow(0.9, dt);
+				fieldv[y][x] *= pow(decay, dt);
 			}
 		}
 		t += dt;
